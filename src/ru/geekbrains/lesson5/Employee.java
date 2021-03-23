@@ -22,9 +22,13 @@ public class Employee {
 
     }
 
-    public void createInformation(String[] args) {
+    public static void createInformation() {
 
         Employee Employee1 = new Employee();
+
+    }
+
+    public static void main(String[] args) {
 
     }
 }
