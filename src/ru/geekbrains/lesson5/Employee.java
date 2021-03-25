@@ -2,33 +2,93 @@ package ru.geekbrains.lesson5;
 
 public class Employee {
 
-    public String FullName;
-    public String Position;
-    public int number;
-    public int salary;
-    public int age;
+    private String fio;
+    private String Position;
+    private String email;
+    private int number;
+    private int salary;
+    private int age;
 
-    public Employee(String FullName, String Position, int number, int salary, int age ){
 
-        this.FullName = FullName;
+
+    public Employee(String fio, String Position, String email, int number, int salary, int age ){
+        this.fio = fio;
         this.Position = Position;
+        this.email = email;
         this.number = number;
         this.salary = salary;
         this.age = age;
 
     }
 
-    public Employee() {
-
+    public String getFio() {
+        return fio;
     }
 
-    public static void createInformation() {
-
-        Employee Employee1 = new Employee();
-
+    public void setFio(String fio) {
+        this.fio = fio;
     }
 
-    public static void main(String[] args) {
-
+    public String getPosition() {
+        return Position;
     }
+
+    public void setPosition(String position) {
+        Position = position;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public static int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "fio='" + fio + '\'' +
+                ", Position='" + Position + '\'' +
+                ", email='" + email + '\'' +
+                ", number=" + number +
+                ", salary=" + salary +
+                ", age=" + age +
+                '}';
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
