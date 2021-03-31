@@ -1,4 +1,15 @@
 package ru.geekbrains.lesson1;
 
-public class Human {
+public final class Human implements Running, Leaping{
+
+
+    @Override
+    public void jump() {
+        ;
+    }
+
+    @Override
+    public void run() {
+
+    }
 }
