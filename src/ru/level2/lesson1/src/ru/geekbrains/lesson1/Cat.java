@@ -1,13 +1,15 @@
 package ru.geekbrains.lesson1;
 
-public final class Cat implements Running, Leaping{
+public class Cat extends Animate implements Runnable, Leapable {
+
+
     @Override
-    public void jump() {
+    public void canJump(int heightJump) {
 
     }
 
     @Override
-    public void run() {
+    public void canRun(int distanceRun) {
 
     }
 }

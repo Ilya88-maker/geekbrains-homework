@@ -1,15 +1,16 @@
 package ru.geekbrains.lesson1;
 
-public final class Human implements Running, Leaping{
+public class Human extends Animate implements Runnable, Leapable  {
 
 
     @Override
-    public void jump() {
-        ;
+    public void canRun(int distanceRun) {
+
     }
 
+
     @Override
-    public void run() {
+    public void canJump(int heightJump) {
 
     }
 }
