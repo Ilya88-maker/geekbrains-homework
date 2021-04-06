@@ -1,16 +1,19 @@
 package ru.geekbrains.lesson1;
 
-public class Human extends Animate implements Runnable, Leapable  {
+public class Human extends Animate implements Runnable, Jumpable {
 
-
-    @Override
-    public void canRun(int distanceRun) {
-
+    public Human(String name){
+        super(name);
     }
 
+    @Override
+    public void run() {
+        System.out.println("Вася бежит");
+    }
 
     @Override
-    public void canJump(int heightJump) {
-
+    public void jump() {
+        System.out.println("Вася прыгает");
     }
+
 }

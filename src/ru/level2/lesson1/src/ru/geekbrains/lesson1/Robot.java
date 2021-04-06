@@ -1,15 +1,18 @@
 package ru.geekbrains.lesson1;
 
-public  class Robot extends Animate implements Runnable, Leapable {
+public  class Robot extends Animate implements Runnable, Jumpable {
 
-
-    @Override
-    public void canJump(int heightJump) {
-
-    }
-
-    @Override
-    public void canRun(int distanceRun) {
+    public Robot(String name) {
+        super(name);
 
     }
-}
+        @Override
+        public void run () {
+            System.out.println("Бежит");
+        }
+
+        @Override
+        public void jump () {
+            System.out.println("Прыгает");
+        }
+    }
