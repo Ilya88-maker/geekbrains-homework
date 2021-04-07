@@ -11,7 +11,7 @@ public class Main {
                  {"4", "4", "4", "4"}};
         try {
             try {
-                int result = method(arr);
+                int result = getException(arr);
                 System.out.println(result);
             } catch (MyArraySizeException e) {
                 System.out.println("Размер массива превышен!");
@@ -25,7 +25,7 @@ public class Main {
     }
 
 
-    public static int method(String[][] arr) throws MyArraySizeException, MyArrayDataException {
+    public static int getException(String[][] arr) throws MyArraySizeException, MyArrayDataException {
         int count = 0;
         if (arr.length != 4) {
             throw new MyArraySizeException();
