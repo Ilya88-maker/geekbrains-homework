@@ -5,12 +5,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Mywindow extends JFrame {
+public class Window extends JFrame {
     private JTextField field;
     private JTextArea jta;
     private JButton button;
 
-    public Mywindow(){
+    public Window(){
         setTitle("Simple chat");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(100, 100, 500, 500);
