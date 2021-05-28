@@ -1,39 +1,45 @@
 package ru.geekbrains.HW4;
 
 public class Task {
-    static volatile char c = 'A';
-    static Object mon = new Object();
+    private static Object monitor = new Object();
+    private static final int repetitionsQuantity = 5;
+    private static volatile char lastLetter = 'C';
 
-    static class WaitNotifyClass implements Runnable {
-        private char currentLetter;
-        private char nextLetter;
+    public static void main(String[] args) {
+        LetterPrinterThread threadA = new LetterPrinterThread('C', 'A');
+        LetterPrinterThread threadB = new LetterPrinterThread('A', 'B');
+        LetterPrinterThread threadC = new LetterPrinterThread('B', 'C');
 
-        public WaitNotifyClass(char currentLetter, char nextLetter) {
-            this.currentLetter = currentLetter;
-            this.nextLetter = nextLetter;
+        threadA.start();
+        threadB.start();
+        threadC.start();
+    }
+
+    private static class LetterPrinterThread extends Thread {
+        private char before;
+        private char after;
+
+        public LetterPrinterThread(char before, char after) {
+            this.before = before;
+            this.after = after;
         }
 
         @Override
         public void run() {
-            for (int i = 0; i < 5; i++) {
-                synchronized (mon) {
-                    try {
-                        while (c != currentLetter)
-                            mon.wait();
-                        System.out.print(currentLetter);
-                        c = nextLetter;
-                        mon.notifyAll();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+            try {
+                for (int i = 0; i < repetitionsQuantity; i++) {
+                    synchronized (monitor) {
+                        while (lastLetter != before) {
+                            monitor.wait();
+                        }
+                        System.out.print(after);
+                        lastLetter = after;
+                        monitor.notifyAll();
                     }
                 }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
-    }
-    public static void main(String[] args) {
-        System.out.println("Task");
-        new Thread(new WaitNotifyClass('A', 'B')).start();
-        new Thread(new WaitNotifyClass('B', 'C')).start();
-        new Thread(new WaitNotifyClass('C', 'A')).start();
     }
 }
